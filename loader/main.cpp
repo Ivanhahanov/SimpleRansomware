@@ -12,11 +12,11 @@ size_t write_data(void *ptr, size_t size, size_t nmemb, FILE *stream) {
     return written;
 }
 
-int main(void) {
+int main(int argc, char** argv) {
     CURL *curl;
     FILE *fp;
     CURLcode res;
-    char *url = "http://localhost:8000/encrypter";
+    char *url = argv[1];
     char outfilename[FILENAME_MAX] = "encrypter";
     curl = curl_easy_init();
     if (curl) {
