@@ -30,22 +30,19 @@ void writeStringToFile(const string& path, const string& text){
     output_file.close();
 }
 
-int main()
-{
-    string filename("example.txt");
+int main(int argc, char** argv) {
+    string filename = argv[1];
+    string key = argv[2];
+    int encrypt_flag = atoi(argv[3]);
     string file_contents;
+    if(encrypt_flag == 0) {
+        file_contents = readFileIntoString(filename);
+        writeStringToFile(filename, encrypt(file_contents, key));
+    } else {
+        file_contents = readFileIntoString(filename);
+        writeStringToFile(filename, decrypt(file_contents, key));
+    }
 
-    file_contents = readFileIntoString(filename);
-    cout << file_contents << endl;
-    string key = "KEY";
- 	cout << "message to send: " << file_contents << endl;
- 	string encrypted_msg = encrypt(file_contents, key);
- 	cout << "encrypted message: " << encrypted_msg << endl;
-    writeStringToFile(filename, encrypted_msg);
-    writeStringToFile("encrypted.txt", encrypted_msg);
-    file_contents = readFileIntoString(filename);
- 	string decrypted_msg = decrypt(file_contents, key);
- 	cout << "decrypted message: " << decrypted_msg << endl;
-    writeStringToFile("filename", decrypted_msg);
     return 0;
 }
+
