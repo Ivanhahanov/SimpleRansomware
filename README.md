@@ -5,7 +5,7 @@ Simple chiper ransomware with loader end encrypter. It use simple alghoritms: Ba
 Compiling encrypter:
 ```
 cd encrypter
-g++ main.cpp -o encrypter
+g++ -static main.cpp -o encryptor -O0 -g
 ```
 Example of usage:
 ```
