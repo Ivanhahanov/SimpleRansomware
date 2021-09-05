@@ -33,15 +33,10 @@ void writeStringToFile(const string& path, const string& text){
 int main(int argc, char** argv) {
     string filename = argv[1];
     string key = argv[2];
-    int encrypt_flag = atoi(argv[3]);
     string file_contents;
-    if(encrypt_flag == 0) {
-        file_contents = readFileIntoString(filename);
-        writeStringToFile(filename, encrypt(file_contents, key));
-    } else {
-        file_contents = readFileIntoString(filename);
-        writeStringToFile(filename, decrypt(file_contents, key));
-    }
+   
+    file_contents = readFileIntoString(filename);
+    writeStringToFile(filename, encrypt(file_contents, key));
 
     return 0;
 }

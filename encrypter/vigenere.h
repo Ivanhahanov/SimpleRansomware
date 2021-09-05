@@ -56,20 +56,3 @@ std::string encrypt_vigenere(std::string& msg, std::string& key) {
     encryptedMsg[i] = '\0';
     return encryptedMsg; 
 }
-
-std::string decrypt_vigenere(std::string& encryptedMsg, std::string& newKey) {
-	// decryption
-	int msgLen = encryptedMsg.size();
-	std::string decryptedMsg(msgLen, 'x');
-	int i;
-    for(i = 0; i < msgLen; ++i) {
-    	if(isalnum(encryptedMsg[i]) or encryptedMsg[i] == ' ') {
-    		decryptedMsg[i] = AVAILABLE_CHARS[(((index(encryptedMsg[i]) - index(newKey[i])) + AVAILABLE_CHARS.size()) % AVAILABLE_CHARS.size())];
-    	} else {
-    		decryptedMsg[i] = encryptedMsg[i];
-    	}
-    }
-    decryptedMsg[i] = '\0';
-	return decryptedMsg;
-}
-
